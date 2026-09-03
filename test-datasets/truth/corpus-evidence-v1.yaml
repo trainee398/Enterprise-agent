@@ -1,0 +1,32 @@
+dataset_version: kb-v1-evidence-2026-09-03.1
+evidence_spans:
+  - span_id: KBV1-SPAN-01
+    doc_id: KBV1-DOC-01
+    fact_ids: [KBV1-F-01, KBV1-F-04]
+    locator: heading_and_paragraph
+    text: 任务 A 截止日期为 2026-08-30。项目 A 负责人为张三。
+  - span_id: KBV1-SPAN-02
+    doc_id: KBV1-DOC-03
+    fact_ids: [KBV1-F-05, KBV1-F-06]
+    locator: table_row_A-102
+    text: 李四 | 接口适配 | 2026-08-28 | Blocked
+  - span_id: KBV1-SPAN-03
+    doc_id: KBV1-DOC-04
+    fact_ids: [KBV1-F-02, KBV1-F-03, KBV1-F-08]
+    locator: dated_paragraphs
+    text: 2026-08-28；完成度 60%；5 个未关闭 P1；2026-08-29 张三说过“等李四的接口”。
+  - span_id: KBV1-SPAN-04
+    doc_id: KBV1-DOC-02
+    fact_ids: [KBV1-F-07]
+    locator: section_相关事件
+    text: 2026-08-20，客户提出修改接口协议。
+  - span_id: KBV1-SPAN-05
+    doc_id: KBV1-DOC-07-v1
+    fact_ids: [KBV1-F-09-OLD]
+    locator: section_v1.0
+    text: 回调超时为 30 秒；该规则于 2026-08-24 失效。
+  - span_id: KBV1-SPAN-06
+    doc_id: KBV1-DOC-07-v2
+    fact_ids: [KBV1-F-09-NEW]
+    locator: section_v2.0
+    text: 回调超时为 60 秒，生效日期为 2026-08-25。

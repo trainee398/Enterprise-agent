@@ -1,0 +1,108 @@
+# Machine-readable inventory for the controlled corpus.
+# Replace status: planned with ready only after the source file, hash, and
+# parser truth have been reviewed.
+dataset_version: kb-v1-corpus-2026-09-03.1
+status: partial
+documents:
+  - doc_id: KBV1-DOC-01
+    title: 项目 A 基本信息
+    expected_format: txt | md | pdf | docx
+    purpose: clean
+    truth_refs: [KBV1-F-01, KBV1-F-04]
+    file_name: KBV1-DOC-01-project-a.md
+    sha256: 94aed42f482f780cd8de55f7012051798ca90725e8cff924480403f0334087dd
+    status: ready
+  - doc_id: KBV1-DOC-02
+    title: 项目说明（标题、段落、列表）
+    expected_format: md | docx | pdf
+    purpose: structure
+    truth_refs: []
+    file_name: KBV1-DOC-02-project-a-overview.md
+    sha256: 9787a33e7ec276de5d382bf9282f8f54de11c6c5894fe6467d5f9d9e5e455a20
+    status: ready
+  - doc_id: KBV1-DOC-03
+    title: 交付清单（含表格）
+    expected_format: xlsx | docx | pdf
+    purpose: table
+    truth_refs: [KBV1-F-05, KBV1-F-06]
+    file_name: KBV1-DOC-03-delivery-table.md
+    sha256: 6692fe569320b69f364dce9c3faa858aa3ab09ee24bd64b40668b84a0980205c
+    status: ready
+  - doc_id: KBV1-DOC-04
+    title: 中英文与数字混排
+    expected_format: txt | md | pdf | docx
+    purpose: encoding
+    truth_refs: [KBV1-F-02, KBV1-F-03]
+    file_name: KBV1-DOC-04-progress-snapshot.md
+    sha256: c6ecb81938e9e23b21bfa35b001e0e5502affa3951dac755d48881ef8949c44d
+    status: ready
+  - doc_id: KBV1-DOC-05
+    title: 长文档（目标信息位于中后段）
+    expected_format: pdf | docx
+    purpose: long_context
+    truth_refs: []
+    file_name: KBV1-DOC-05-long-form.md
+    sha256: 4ee7666dd6397a6bfdae142d95ed7117670507cdb624245feb83600e7f137b6a
+    status: ready
+  - doc_id: KBV1-DOC-06
+    title: 项目 B 相似词干扰文档
+    expected_format: txt | md | pdf | docx
+    purpose: distractor
+    truth_refs: [KBV1-F-10]
+    file_name: KBV1-DOC-06-project-b-distractor.md
+    sha256: c541d1bf3d6f982bf62c856230cda959f3752a5aebac80a4521921abbef227eb
+    status: ready
+  - doc_id: KBV1-DOC-07
+    title: 接口规范旧版与新版
+    expected_format: pdf | docx | txt
+    purpose: stale_and_current
+    truth_refs: [KBV1-F-09-OLD, KBV1-F-09-NEW]
+    file_name: KBV1-DOC-07-interface-spec-versions.md
+    sha256: 60b8ded2ee5c50183c266012323d8c65096e578d744ea8267d913440c97b1074
+    status: ready
+  - doc_id: KBV1-DOC-08
+    title: 含文档内对抗指令的普通文档
+    expected_format: txt | md | pdf | docx
+    purpose: adversarial
+    truth_refs: []
+    file_name: KBV1-DOC-08-adversarial-content.md
+    sha256: 21a3169c96d67e733076dd7d367e6ba92eecbd1e0310fafa6d7174f6a1155848
+    status: ready
+  - doc_id: KBV1-DOC-07-v1
+    title: 接口规范 v1.0（已失效）
+    expected_format: md | txt | pdf | docx
+    purpose: stale_version
+    truth_refs: [KBV1-F-09-OLD]
+    file_name: KBV1-DOC-07-v1.md
+    sha256: ef363e1f6c9e4a9e39be681b9ae23adc2c7ecf61e82dac9886bcd97ed4c30979
+    status: ready
+  - doc_id: KBV1-DOC-07-v2
+    title: 接口规范 v2.0（当前版本）
+    expected_format: md | txt | pdf | docx
+    purpose: current_version
+    truth_refs: [KBV1-F-09-NEW]
+    file_name: KBV1-DOC-07-v2.md
+    sha256: 73dc6ac2052cef320ed971a77b8644f17b4bda8dbbc2c7f979fb7a97a6bc6917
+    status: ready
+  - doc_id: KBV1-DOC-ERR-01
+    title: 空文件
+    expected_format: supported_format
+    purpose: empty_file
+    truth_refs: []
+    file_name: ''
+    status: planned
+  - doc_id: KBV1-DOC-ERR-02
+    title: 损坏文件
+    expected_format: supported_format
+    purpose: corrupt_file
+    truth_refs: []
+    file_name: KBV1-DOC-ERR-02-corrupt.txt
+    sha256: ccb50043f8b645343421034e9d0cf79dc35988117533f997f90b14349a621152
+    status: ready
+  - doc_id: KBV1-DOC-ERR-03
+    title: 超出大小限制的文件
+    expected_format: supported_format
+    purpose: size_limit
+    truth_refs: []
+    file_name: ''
+    status: planned

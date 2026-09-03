@@ -1,0 +1,491 @@
+# Lifecycle 生命周期测试用例集
+
+> 测试上传、更新、删除、失败恢复等知识库生命周期行为
+
+## 测试目标
+
+验证知识库在整个生命周期中的行为：
+- 重复上传的语义（覆盖、去重、并存）
+- 处理失败后的重试机制
+- 文档更新后的索引更新
+- 删除传播（源删除后索引是否清理）
+- 状态可见性（处理中、成功、失败）
+- 刷新和离开页面后的状态恢复
+
+## Lifecycle 用例 Schema
+
+```yaml
+case_id: KBV1-LC-001
+category: upload | update | delete | retry | state | version
+priority: P0 | P1
+precondition: ""
+operation: ""
+expected_behavior: ""
+expected_state: ""
+observable_evidence: []
+forbidden_behavior: []
+判定方式: code | manual | mixed
+```
+
+## 第一批生命周期用例（12 条）
+
+```yaml
+# ============================================================
+# LC-001: 基础上传成功
+# ============================================================
+case_id: KBV1-LC-001
+category: upload
+priority: P0
+precondition: 空知识库
+operation: 上传 KBV1-DOC-01（短文本）并等待完成
+expected_behavior: |
+  1. 上传状态从"上传中"变为"处理中"再到"完成"
+  2. 状态时间线清晰可见
+  3. 文档可检索
+expected_state:
+  upload_status: success
+  processing_status: completed
+  indexing_status: indexed
+observable_evidence:
+  - upload_id
+  - document_id
+  - processing_job_id
+  - 状态时间线
+  - 文档在检索结果中出现
+forbidden_behavior:
+  - 静默失败（显示成功但实际未索引）
+  - 状态卡在"处理中"不更新
+  - 刷新后状态丢失
+判定方式: code
+判定规则: |
+  1. upload_id 和 document_id 存在
+  2. 最终状态为"完成"或等价表达
+  3. 能通过检索找到文档内容
+  4. 状态时间线有完整的时间戳
+
+---
+
+# ============================================================
+# LC-002: 空文件明确失败
+# ============================================================
+case_id: KBV1-LC-002
+category: upload
+priority: P0
+precondition: 空知识库
+operation: 上传 KBV1-DOC-ERR-01（空文件）
+expected_behavior: |
+  1. 明确显示失败
+  2. 错误原因可理解
+  3. 用户知道下一步（删除或重新上传）
+expected_state:
+  upload_status: failed
+  error_code: exists
+  error_message: 清晰说明原因
+observable_evidence:
+  - 错误提示
+  - 失败状态
+  - 重试或删除入口
+forbidden_behavior:
+  - 显示为成功
+  - 半份可见文档
+  - 无错误信息
+判定方式: manual
+判定规则: |
+  1. 页面明确显示失败
+  2. 错误信息可理解（不是技术栈错误）
+  3. 用户能判断下一步做什么
+
+---
+
+# ============================================================
+# LC-003: 损坏文件明确失败
+# ============================================================
+case_id: KBV1-LC-003
+category: upload
+priority: P0
+precondition: 空知识库
+operation: 上传 KBV1-DOC-ERR-02（损坏文件）
+expected_behavior: |
+  1. 明确显示失败
+  2. 错误原因说明文件无法解析
+  3. 可重试或删除
+expected_state:
+  upload_status: failed
+  error_code: exists
+  error_message: 说明解析失败
+observable_evidence:
+  - 错误提示
+  - 失败状态
+forbidden_behavior:
+  - 显示为成功
+  - 部分解析后的乱码内容被索引
+  - 无法恢复（卡住）
+判定方式: manual
+判定规则: |
+  1. 页面明确显示失败
+  2. 错误信息提到"解析"或"文件格式"
+  3. 用户能删除或重新上传
+
+---
+
+# ============================================================
+# LC-004: 超限文件明确提示
+# ============================================================
+case_id: KBV1-LC-004
+category: upload
+priority: P0
+precondition: 空知识库，已确认文件大小限制
+operation: 上传 KBV1-DOC-ERR-03（超出限制）
+expected_behavior: |
+  1. 上传前或上传时明确提示超限
+  2. 说明限制值
+  3. 不消耗处理资源
+expected_state:
+  upload_status: rejected | failed
+  error_message: 包含限制值
+observable_evidence:
+  - 超限提示
+  - 限制说明
+forbidden_behavior:
+  - 静默失败
+  - 显示成功但实际未处理
+  - 部分上传成功
+判定方式: manual
+判定规则: |
+  1. 明确提示文件过大
+  2. 说明限制值（如"最大 10MB"）
+  3. 用户不会误以为上传成功
+
+---
+
+# ============================================================
+# LC-005: 重复上传行为明确
+# ============================================================
+case_id: KBV1-LC-005
+category: update
+priority: P0
+precondition: KBV1-DOC-01 已上传并处理完成
+operation: 再次上传同名文件 KBV1-DOC-01
+expected_behavior: 按产品契约执行（覆盖、去重或并存）
+expected_state:
+  根据产品定义：
+    - 覆盖：旧 document_id 失效，新 document_id 生效
+    - 去重：提示已存在，不重复处理
+    - 并存：生成新 document_id，两份共存
+observable_evidence:
+  - document_id 数量
+  - 版本信息（如果支持）
+  - 旧文档状态（如果覆盖）
+forbidden_behavior:
+  - 静默去重但未告知用户
+  - 重复索引导致检索结果重复
+  - 旧文档残留（若承诺覆盖）
+判定方式: code + manual
+判定规则: |
+  1. 行为符合产品声称的语义
+  2. document_id 数量符合预期
+  3. 检索结果不会不明重复
+
+---
+
+# ============================================================
+# LC-006: 处理失败可重试
+# ============================================================
+case_id: KBV1-LC-006
+category: retry
+priority: P0
+precondition: 上传文件后人为触发处理失败（如网络中断）
+operation: 重试处理
+expected_behavior: |
+  1. 明确显示失败状态
+  2. 提供重试入口
+  3. 重试后不产生重复索引
+expected_state:
+  initial_status: failed
+  after_retry_status: completed
+observable_evidence:
+  - 重试按钮或入口
+  - 重试后的 processing_job_id
+  - 检索结果不重复
+forbidden_behavior:
+  - 无重试入口（用户只能删除后重新上传）
+  - 重试产生重复 document_id
+  - 旧的失败任务仍显示"处理中"
+判定方式: manual
+判定规则: |
+  1. 失败后能找到重试入口
+  2. 重试后成功
+  3. 检索文档内容不重复
+
+---
+
+# ============================================================
+# LC-007: 刷新后状态不丢失
+# ============================================================
+case_id: KBV1-LC-007
+category: state
+priority: P0
+precondition: 文档正在处理中
+operation: 刷新页面
+expected_behavior: |
+  1. 返回后仍能看到正在处理的文档
+  2. 状态继续更新
+  3. 不显示假成功
+expected_state:
+  处理中则继续显示处理中
+  完成则显示完成
+observable_evidence:
+  - document_id 或 upload_id 持久化
+  - 状态正确
+forbidden_behavior:
+  - 刷新后文档消失
+  - 状态重置为"未上传"
+  - 显示假成功
+判定方式: manual
+判定规则: |
+  1. 刷新前后 document_id 一致
+  2. 状态不倒退
+  3. 最终状态与实际处理结果一致
+
+---
+
+# ============================================================
+# LC-008: 离开页面后回来状态正确
+# ============================================================
+case_id: KBV1-LC-008
+category: state
+priority: P1
+precondition: 文档正在处理中
+operation: 离开页面（导航到其他页面或关闭标签页），稍后返回
+expected_behavior: |
+  1. 返回后能看到最终状态
+  2. 不显示假"处理中"
+  3. 完成或失败状态正确
+expected_state:
+  根据实际处理结果显示
+observable_evidence:
+  - 任务 ID
+  - 最终状态
+forbidden_behavior:
+  - 永远显示"处理中"
+  - 实际失败但显示成功
+  - 文档消失
+判定方式: manual
+判定规则: |
+  1. 返回后状态与实际处理结果一致
+  2. 不会永远卡在"处理中"
+  3. 用户能判断是否可以提问
+
+---
+
+# ============================================================
+# LC-009: 删除文档后不可检索
+# ============================================================
+case_id: KBV1-LC-009
+category: delete
+priority: P0
+precondition: KBV1-DOC-01 已上传、处理完成并可检索
+operation: 删除该文档
+expected_behavior: |
+  1. 文档从列表中移除
+  2. 索引中的 Chunk 也被清理
+  3. 检索不再返回该文档内容
+expected_state:
+  document_status: deleted | not_found
+observable_evidence:
+  - 文档列表中不再出现
+  - 检索该文档的关键词不返回结果
+  - document_id 无效或标记为已删除
+forbidden_behavior:
+  - 幽灵数据（删除后仍能检索到）
+  - 只删除了列表，索引未清理
+  - 部分 Chunk 残留
+判定方式: code
+判定规则: |
+  1. 文档列表中不存在该 document_id
+  2. 检索该文档的特有关键词不返回结果
+  3. Top-K 中不出现该文档的 Chunk
+
+---
+
+# ============================================================
+# LC-010: 处理中不应返回结果
+# ============================================================
+case_id: KBV1-LC-010
+category: state
+priority: P0
+precondition: 文档正在处理中，尚未索引完成
+operation: 对该文档提问
+expected_behavior: |
+  1. 明确说明文档正在处理中
+  2. 不编造答案
+  3. 建议等待处理完成
+expected_state:
+  query_result: processing | not_ready
+observable_evidence:
+  - 处理中提示
+  - 不返回编造内容
+forbidden_behavior:
+  - 返回编造的答案
+  - 使用部分处理的内容（可能不完整或错误）
+  - 静默失败（不告知用户原因）
+判定方式: code + manual
+判定规则: |
+  1. 答案不包含文档的实际内容
+  2. 明确提示"处理中"或"不可用"
+  3. 用户知道需要等待
+
+---
+
+# ============================================================
+# LC-011: 更新文档后索引同步
+# ============================================================
+case_id: KBV1-LC-011
+category: update
+priority: P1
+precondition: KBV1-DOC-07-v1（旧版）已上传并可检索
+operation: 上传 KBV1-DOC-07-v2（新版），内容不同
+expected_behavior: |
+  根据产品契约：
+  - 若支持版本：旧版标记失效，新版生效
+  - 若覆盖：旧内容不可检索，新内容可检索
+  - 若并存：两版本共存，标识清晰
+expected_state:
+  根据产品定义
+observable_evidence:
+  - 检索新版内容能找到
+  - 检索旧版特有内容的行为符合产品定义
+  - 版本信息或更新时间
+forbidden_behavior:
+  - 旧版内容压过新版（若承诺新版优先）
+  - 新旧内容混答
+  - 旧版残留（若承诺覆盖）
+判定方式: code
+判定规则: |
+  1. 检索新版特有关键词能找到新版
+  2. 检索旧版特有关键词的行为符合产品定义
+  3. 不出现新旧混答
+
+---
+
+# ============================================================
+# LC-012: 并发上传不混淆
+# ============================================================
+case_id: KBV1-LC-012
+category: upload
+priority: P1
+precondition: 空知识库
+operation: 同时上传 KBV1-DOC-01 和 KBV1-DOC-02
+expected_behavior: |
+  1. 两份文档有独立的 document_id
+  2. 处理状态互不干扰
+  3. 检索能区分两份文档
+expected_state:
+  document_count: 2
+  each_has_unique_id: true
+observable_evidence:
+  - 两个不同的 document_id
+  - 两个独立的处理状态
+  - 检索结果能分别引用
+forbidden_behavior:
+  - document_id 冲突
+  - 一个成功另一个消失
+  - 内容混淆
+判定方式: code
+判定规则: |
+  1. document_id 数量为 2
+  2. document_id 不相同
+  3. 检索 DOC-01 特有内容不返回 DOC-02
+  4. 检索 DOC-02 特有内容不返回 DOC-01
+```
+
+## 扩展用例（待补充）
+
+### 权限相关生命周期
+- 上传时标记权限
+- 权限变更后索引同步
+- 删除后权限信息也清理
+
+### 批量操作
+- 批量上传
+- 批量删除
+- 部分失败的处理
+
+### 长时间运行
+- 超大文件处理时间
+- 超时行为
+- 处理队列可见性
+
+### 错误恢复
+- 网络中断后恢复
+- 服务重启后任务恢复
+- 部分失败的回滚
+
+## 数据集元信息
+
+```yaml
+dataset_version: kb-v1-lifecycle-2026-09-03.1
+total_cases: 12
+upload_cases: 4
+update_cases: 2
+delete_cases: 1
+retry_cases: 1
+state_cases: 4
+p0_cases: 10
+p1_cases: 2
+requires_code_judgment: 6
+requires_manual_judgment: 9
+```
+
+## 测试执行建议
+
+### 第一轮：核心上传流程
+1. LC-001（成功）
+2. LC-002（空文件）
+3. LC-003（损坏）
+4. LC-004（超限）
+
+### 第二轮：状态管理
+1. LC-007（刷新）
+2. LC-008（离开后回来）
+3. LC-010（处理中提问）
+
+### 第三轮：更新与删除
+1. LC-005（重复上传）
+2. LC-009（删除）
+3. LC-011（更新）
+
+### 第四轮：异常恢复
+1. LC-006（重试）
+2. LC-012（并发）
+
+## 常见问题定位
+
+| 症状 | 可能原因 | 检查点 |
+|------|----------|--------|
+| 显示成功但不可检索 | 索引失败，状态未同步 | processing_job_id、索引日志 |
+| 刷新后状态丢失 | 前端状态未持久化 | document_id、后端状态 |
+| 删除后仍能检索 | 删除传播失败（幽灵数据） | 索引清理日志、Top-K |
+| 重试产生重复 | 幂等性缺失 | document_id 数量、Chunk 重复 |
+| 旧版压过新版 | 版本处理缺失或分数混淆 | 版本字段、检索分数 |
+| 处理永远卡住 | 任务超时未标记失败 | 处理时长、超时配置 |
+
+## 与企业 RAG 差分的关系
+
+这些生命周期用例是 U2b 第 2 条差分"删除要传播"的具体测试：
+
+| U2b 差分点 | 对应 Lifecycle 用例 |
+|------------|---------------------|
+| 删除传播 | LC-009 |
+| 版本失效 | LC-011 |
+| 对账（处理完整性） | LC-001, LC-005, LC-012 |
+| 延迟 SLA（可检索时延） | LC-001, LC-007, LC-008 |
+
+## 回填到长期文档
+
+| 本文产物 | 回填位置 |
+|----------|----------|
+| 上传状态、错误恢复 | 文档 3 测试环境与缺陷管理 |
+| 删除传播、版本失效 | 文档 3 LX、U2b |
+| 可观测性要求 | 文档 8 第 2.2 节 |
+| 生命周期门槛 | 文档 4 发布门槛 |
