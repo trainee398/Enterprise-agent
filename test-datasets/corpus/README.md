@@ -101,7 +101,7 @@ license_or_origin: internal | public-with-license | synthetic
 
 已提供 8 份受控 Markdown 源稿，以及 1 份文本异常样本。它们是事实和结构的基准；如果产品不支持 Markdown，应按同一内容转换为实际支持的 PDF/DOCX/TXT/XLSX，再在 manifest 中记录转换关系。空文件和超限文件需要在测试执行时按产品限制生成，避免把本地仓库变成大文件存储。
 
-上传前先核对 `manifest-v1.yaml` 的 `file_name`、`status` 和产品实际支持格式；上传后在运行目录记录 SHA-256、解析文本、Chunk 边界和页码/段落证据。
+上传前先核对 `manifest-v1.yaml` 的 `file_name`、`status` 和产品实际支持格式；`status: derived` 的合并版本不要与其版本变体同时上传。上传后在运行目录记录 SHA-256、解析文本、Chunk 边界和页码/段落证据。
 
 ## 文件命名规范
 

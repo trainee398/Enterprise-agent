@@ -1,0 +1,19 @@
+# 测试运行产物
+runs/*/
+*.log
+
+# 临时文件
+*.tmp
+*.swp
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 但保留目录结构示例
+!runs/.gitkeep
+!defects/.gitkeep
+!frozen/.gitkeep
+!generated/.gitkeep
+!verified/.gitkeep

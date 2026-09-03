@@ -59,7 +59,8 @@ documents:
     truth_refs: [KBV1-F-09-OLD, KBV1-F-09-NEW]
     file_name: KBV1-DOC-07-interface-spec-versions.md
     sha256: 60b8ded2ee5c50183c266012323d8c65096e578d744ea8267d913440c97b1074
-    status: ready
+    status: derived
+    upload_policy: do_not_upload_with_version_variants
   - doc_id: KBV1-DOC-08
     title: 含文档内对抗指令的普通文档
     expected_format: txt | md | pdf | docx
