@@ -1,5 +1,7 @@
 # 文档 7 · 企业 Agent 竞品分析
 
+> 文档归属（2026-09-08 整理）：长期企业 Agent 学习与评测草稿，保留原学习状态，不是当前知识库一期的实现说明或验收要求。当前工作见[一期范围记录](00-知识库一期范围与待确认事项.md)。
+
 > 状态：骨架 + 初步对照表（第 1 课联网核实；深度分析由第 7 课填充）
 > 覆盖：Glean / Microsoft Copilot Studio / Atlassian Rovo / ServiceNow / Notion / Salesforce Agentforce
 
