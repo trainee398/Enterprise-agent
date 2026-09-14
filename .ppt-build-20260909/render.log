@@ -1,0 +1,25 @@
+[artifact-tool] embedded_font_glyph_semantics_invalid: decoded CTF glyph 9 bounds [67, 0, 2038, 3135] exceed head global bounds [-2080, -900, 7274, 3072]
+[artifact-tool] embedded_font_glyph_semantics_invalid: decoded CTF glyph 9 bounds [70, 0, 1901, 3090] exceed head global bounds [-2080, -900, 7274, 3072]
+[artifact-tool] embedded_font_glyph_semantics_invalid: decoded CTF glyph 9 bounds [69, 0, 1970, 3113] exceed head global bounds [-2080, -900, 7274, 3072]
+[artifact-tool] embedded_font_decode_failed: unsupported CTF scaler type 0x4f54544f
+{
+  "input": "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/交付/知识类产品与数据看板调研_周五讨论稿.pptx",
+  "outputDir": "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render",
+  "slideCount": 14,
+  "paths": [
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-1.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-2.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-3.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-4.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-5.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-6.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-7.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-8.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-9.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-10.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-11.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-12.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-13.png",
+    "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/final-render/slide-14.png"
+  ]
+}

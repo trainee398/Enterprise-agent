@@ -1,0 +1,43 @@
+[artifact-tool] embedded_font_glyph_semantics_invalid: decoded CTF glyph 9 bounds [67, 0, 2038, 3135] exceed head global bounds [-2080, -900, 7274, 3072]
+[artifact-tool] embedded_font_glyph_semantics_invalid: decoded CTF glyph 9 bounds [70, 0, 1901, 3090] exceed head global bounds [-2080, -900, 7274, 3072]
+[artifact-tool] embedded_font_glyph_semantics_invalid: decoded CTF glyph 9 bounds [69, 0, 1970, 3113] exceed head global bounds [-2080, -900, 7274, 3072]
+[artifact-tool] embedded_font_decode_failed: unsupported CTF scaler type 0x4f54544f
+IMAGES [ 'constructor', 'items', 'add', 'deleteById', 'toProto' ]
+IMAGE [
+  'constructor',       'id',
+  'aid',               'toSnapshot',
+  'referenceId',       'image',
+  'contentType',       'bytes',
+  'uri',               'getBitmap',
+  'alt',               'prompt',
+  'isPlaceholder',     'fit',
+  'geometry',          'line',
+  'borderRadius',      'lockAspectRatio',
+  'crop',              'width',
+  'height',            'size',
+  'flipHorizontal',    'flipVertical',
+  'replace',           'regenerate',
+  'delete',            'setImageReference',
+  'resolveFrame',      'resolveImageFill',
+  'resolveImageMask',  'toProto',
+  'recordPositionSet'
+]
+TEXT [
+  'constructor',     'toString',
+  'get',             'getRange',
+  'selectRunRanges', 'set',
+  'add',             'paragraphs',
+  'replace',         'bold',
+  'italic',          'fontSize',
+  'typeface',        'lineSpacing',
+  'underline',       'color',
+  'fill',            'highlight',
+  'outline',         'shadow',
+  'alignment',       'verticalAlignment',
+  'autoFit',         'wrap',
+  'insets',          'style',
+  'className',       'defaultTextStyle'
+]
+BEFORE undefined
+AFTER undefined
+Inspect result written to file: /Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.ppt-build-20260909/probe.pptx.inspect.ndjson

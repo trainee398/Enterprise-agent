@@ -1,0 +1,29 @@
+{
+  "slide_count": 12,
+  "images_embedded_unchanged": true,
+  "notes_present": 12,
+  "note_character_counts": [
+    134,
+    233,
+    990,
+    334,
+    348,
+    492,
+    330,
+    422,
+    325,
+    742,
+    638,
+    281
+  ],
+  "final_bytes": 13686722,
+  "final_sha256": "c06acaba9701ccbe49553c23c52aaa94ce511bb155ab91935fd9d02f4528e2d0",
+  "actual_source_image_size": [
+    1672,
+    941
+  ],
+  "format": "16:9 full-slide images; individual slide text is not separately editable",
+  "qa": "All generated slide images visually reviewed; slide 05 and 06 regenerated for missing Chinese text; all final slides rendered.",
+  "powerpoint_native_execution_checked": false,
+  "preview": "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/交付/企业知识库与数据看板调研_codex-ppt全页预览.jpg"
+}

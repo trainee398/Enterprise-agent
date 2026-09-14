@@ -1,0 +1,422 @@
+{
+  "deck_name": "企业知识库与数据看板调研",
+  "language": "Chinese",
+  "goal": "为领导评审提出简洁知识库一期建议，并汇报数据看板初步调研；明确依据、建议和待验证的持续使用假设。",
+  "deck_context": {
+    "core_claim": "默认有结构，自定义非必需。系统提供默认结构，管理员可修改或自定义，员工不必先搭建。先做好资料归属、查找、维护与可见范围。",
+    "confirmed_background": "企业知识、企业数据、OKR 组成事实层供 Agent 调用，提升公司业务能力；知识库先上线，控制投入。",
+    "evidence_limits": "语雀偏好来自个人体验，不能代表企业用户；持续使用判断为推测；数据看板只有官方资料调研。",
+    "visibility_rule": "部门与分类是组织方式。只有获得授权的成员可见。管理员配置不是使用前置；不等于未确认成员时可公开敏感资料。"
+  },
+  "selected_image_backend": "built-in image tool",
+  "max_concurrent_slides": 3,
+  "style": {
+    "name": "清爽专业风·蓝白产品汇报",
+    "visual_direction": "Refined modern Chinese executive product report. White canvas, ink navy headings, cobalt blue emphasis, very pale ice blue surfaces. Open whitespace, precise alignment, large projection-readable Chinese sans-serif type. Follow the sample palette, typography and visual clarity. Vary composition purposefully.",
+    "color_palette": "White #FFFFFF, navy #142B49, cobalt #2563EB, ice blue #EFF5FF; no green, no purple, no warm beige, no neon, no dark full backgrounds.",
+    "typography": "Large bold clean Chinese sans-serif title around 72 px on 2560-wide slide; body 36–44 px target; readable labels, strong hierarchy. Match sample. Exact Chinese text.",
+    "texture_and_finish": "Clean flat design. Only simple relevant folder/document/search/permission symbols. No photographs, no 3D glass, no dramatic gradients or heavy shadow. No repeated card-grid template.",
+    "canvas": "16:9 landscape, 2560x1440 target, full image canvas, 5 percent safe margins. No slide numbers, no logos or watermark."
+  },
+  "authorization": {
+    "basis": "用户直接要求重新生成并纳入思路，已说明整页图片型PPT。",
+    "gates": "Proceed under direct authorization; outline/style/backend/sample QA selected by assistant. No claim of individual user sample approval."
+  },
+  "sample_generation_method": {
+    "backend_used": "built-in image tool",
+    "tool_name": "image_gen",
+    "mode": "generate",
+    "prompt_source": "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.codex-ppt-20260910/企业知识库与数据看板调研/sample_prompt.txt",
+    "size": "16:9 landscape, 2560x1440 requested; actual built-in output dimensions recorded at QA",
+    "quality": "built-in default",
+    "model": "built-in default; not explicitly exposed",
+    "approved_sample_path": "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.codex-ppt-20260910/企业知识库与数据看板调研/origin_image/slide_04.png",
+    "input_context_preparation": "Sample generated from text; workers inspect sample with view_image then attach referenced_image_paths as style-only input to a new slide generation.",
+    "handoff_rule": "Use same built-in image_gen generation family. Style reference is not an edit target. Return blocker if unavailable.",
+    "acceptance_basis": "Assistant visual QA under direct regeneration authorization; user did not separately approve sample."
+  },
+  "approved_style_reference": {
+    "path": "/Users/linhe/Desktop/Workspace/05_Knowledge_知识沉淀/Agent测试/Enterprise agent/.codex-ppt-20260910/企业知识库与数据看板调研/origin_image/slide_04.png",
+    "role": "internally reviewed sample slide style reference",
+    "fidelity": "match palette and typography only, replace all content and vary layout"
+  },
+  "slides": [
+    {
+      "number": 1,
+      "title": "企业知识库一期建议",
+      "key_points": [
+        "默认有结构，使用更简单",
+        "知识类竞品取舍 · 数据看板调研",
+        "2026.09.11｜评审讨论稿"
+      ],
+      "role": "cover",
+      "intent": "Minimal premium cover. Main title in two lines on left 58%, large clean navy typography. Subtitle smaller cobalt underneath. Right 38% a single elegant conceptual library/document illustration with clear stacked documents and a few orderly folders, subtle blue. Lots of whitespace, no boxes of prose. Date at bottom left.",
+      "layout": {
+        "composition": "Minimal premium cover. Main title in two lines on left 58%, large clean navy typography. Subtitle smaller cobalt underneath. Right 38% a single elegant conceptual library/document illustration with clear stacked documents and a few orderly folders, subtle blue. Lots of whitespace, no boxes of prose. Date at bottom left.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "One simple open library/folder-document visual, stylized flat and blue, communicating orderly knowledge."
+      },
+      "local_context": "This is a proposal based on research and user ideas, not an approved product specification. Include data dashboard research in the subtitle.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "已确认的方向与本次重点",
+      "key_points": [
+        "企业知识",
+        "企业数据",
+        "OKR",
+        "事实层",
+        "Agent 调用",
+        "提升公司业务能力",
+        "当前优先：知识库",
+        "保持简洁 · 控制投入",
+        "整体方向已确认，具体一期方案供评审"
+      ],
+      "role": "context flow",
+      "intent": "Upper title. Center-left three stacked inputs 企业知识 / 企业数据 / OKR converge into 事实层 in center, then arrow to Agent 调用, then to 提升公司业务能力 at right. Enterprise knowledge input is cobalt, other inputs muted pale blue. Under the diagram a single open cobalt callout 当前优先：知识库 and supporting line 保持简洁 · 控制投入. Footer carries caveat. Large clear semantic flow with no infrastructure boxes.",
+      "layout": {
+        "composition": "Upper title. Center-left three stacked inputs 企业知识 / 企业数据 / OKR converge into 事实层 in center, then arrow to Agent 调用, then to 提升公司业务能力 at right. Enterprise knowledge input is cobalt, other inputs muted pale blue. Under the diagram a single open cobalt callout 当前优先：知识库 and supporting line 保持简洁 · 控制投入. Footer carries caveat. Large clear semantic flow with no infrastructure boxes.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "A concise 3-input to fact-layer to Agent to outcome conceptual flow."
+      },
+      "local_context": "Framework confirmed by leader as relayed by user. This is not a detailed enterprise Agent architecture. First phase Agent Q&A delivery is not determined.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "竞品中值得保留的机制",
+      "key_points": [
+        "产品",
+        "可借鉴的机制",
+        "一期取舍建议",
+        "语雀｜知识库归属与目录｜采用默认结构，控制分类层级",
+        "Notion｜搜索与最近访问｜方便找回资料，暂缓多视图体系",
+        "飞书｜文档权限默认配置｜统一设置范围，暂缓多应用提取",
+        "Obsidian｜Markdown 直接读写｜保留轻量编辑，权限模型另定",
+        "依据：官方资料与个人体验；不构成用户留存结论"
+      ],
+      "role": "comparison",
+      "intent": "A spacious editorial comparison with three aligned text columns and four rows, no boxed grid. Column 1 product names navy bold, second mechanism, third proposal cobalt emphasis. Thin pale rules between rows only. Title at top, short evidence disclosure at bottom. Avoid tiny table cells or extra icons taking text space.",
+      "layout": {
+        "composition": "A spacious editorial comparison with three aligned text columns and four rows, no boxed grid. Column 1 product names navy bold, second mechanism, third proposal cobalt emphasis. Thin pale rules between rows only. Title at top, short evidence disclosure at bottom. Avoid tiny table cells or extra icons taking text space.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "Open typographic 4-row comparison with at most subtle product-neutral icons."
+      },
+      "local_context": "Yuque known for explicit library/document organization. User likes it personally; no proven causal success/retention claim. Feishu defaults can be changed, they are not hard security enforcement. Obsidian shared vault lacks granular access. Avoid implying other competitors require complex use. GitBook is supplemental research in speech, not a new visible row.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "默认有结构，自定义非必需",
+      "key_points": [
+        "系统提供一套可直接使用的默认结构",
+        "公司",
+        "公司公共库",
+        "销售部知识库",
+        "研发部知识库",
+        "产品资料",
+        "产品介绍文档",
+        "公司 → 知识库 → 目录 → 文档",
+        "管理员按需调整",
+        "直接使用",
+        "修改默认结构",
+        "完全自定义",
+        "无需先配置\n再开始使用",
+        "方案示意｜部门与目录为示例，成员可见范围单独确认"
+      ],
+      "role": "default structure",
+      "intent": "Use the internally reviewed sample image unchanged. Company parent with three libraries; sales library contains product directory and document. Right optional admin choices, not mandatory steps.",
+      "layout": {
+        "composition": "Use the internally reviewed sample image unchanged. Company parent with three libraries; sales library contains product directory and document. Right optional admin choices, not mandatory steps.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": ""
+      },
+      "local_context": "System provides default structure. Admin setup is NOT prerequisite. Department and directory names are examples, not a promise of organization synchronization.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ],
+      "sample_approved": true,
+      "use_approved_style_reference": false,
+      "acceptance_basis": "Internally accepted sample under direct full-regeneration authorization; not individually user-approved."
+    },
+    {
+      "number": 5,
+      "title": "员工进入后就能开始",
+      "key_points": [
+        "方案示意",
+        "知识库",
+        "公司公共库",
+        "销售部知识库",
+        "产品资料",
+        "待整理",
+        "搜索我有权查看的内容",
+        "上传文件",
+        "新建文档",
+        "最近访问",
+        "产品介绍",
+        "客户常见问题",
+        "归属：销售部知识库 / 产品资料",
+        "可见：销售部成员",
+        "当前库直接保存，未分类可先放入待整理",
+        "只展示有权访问的库，入口保持集中"
+      ],
+      "role": "proposed interface",
+      "intent": "Title top. Below, ONE large coherent desktop knowledge-library interface mockup occupying about 78% width and 66% height, centered left. This is the only slide with application UI, use sample white/navy/cobalt and airy flat components. A simple sidebar contains 知识库 title and two library names; sales library expanded to 产品资料 and 待整理. The main workspace has search bar, two buttons 上传文件 新建文档, 最近访问, two clean document rows 产品介绍 and 客户常见问题. Show readable current location and visibility metadata at bottom of mockup. Outside UI in remaining bottom band two concise captions. Small visible 方案示意 near mockup top. No invented product brand or dates.",
+      "layout": {
+        "composition": "Title top. Below, ONE large coherent desktop knowledge-library interface mockup occupying about 78% width and 66% height, centered left. This is the only slide with application UI, use sample white/navy/cobalt and airy flat components. A simple sidebar contains 知识库 title and two library names; sales library expanded to 产品资料 and 待整理. The main workspace has search bar, two buttons 上传文件 新建文档, 最近访问, two clean document rows 产品介绍 and 客户常见问题. Show readable current location and visibility metadata at bottom of mockup. Outside UI in remaining bottom band two concise captions. Small visible 方案示意 near mockup top. No invented product brand or dates.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "One polished clean knowledge library UI mockup that explains hierarchy plus quick start."
+      },
+      "local_context": "Proposed employee interface not a screenshot. Employee need not configure company structure. App only exposes accessible libraries. No-category means 待整理 in already selected library, not automatic public. No extra admin setting module, AI chat, tasks or calendar.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "权限按知识库集中设置",
+      "key_points": [
+        "知识库",
+        "谁能查看",
+        "谁能维护",
+        "公司公共库｜全体员工｜指定维护人",
+        "部门知识库｜获授权部门成员｜指定维护人",
+        "指定成员库｜获授权成员｜指定维护人",
+        "目录和文档继承所在库权限",
+        "管理员维护授权范围；单篇权限例外先核实场景",
+        "搜索、直链与后续 Agent 调用遵守同一可见范围"
+      ],
+      "role": "permission explanation",
+      "intent": "Top title, spacious 3-column table of three examples across upper body, thin blue horizontal rules only. Underneath on the left show a small library icon connecting downward to directory then document, next to the exact inheritance sentence. Right/bottom two precise caveats set in flat typography. Do not add a separate RBAC or technical architecture.",
+      "layout": {
+        "composition": "Top title, spacious 3-column table of three examples across upper body, thin blue horizontal rules only. Underneath on the left show a small library icon connecting downward to directory then document, next to the exact inheritance sentence. Right/bottom two precise caveats set in flat typography. Do not add a separate RBAC or technical architecture.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "Clear membership example table plus inheritance arrow, not locks on every directory."
+      },
+      "local_context": "This is an initial proposal. Permissions are intentional grants, department label is not unconditional access. Public means inside company, not internet. Admin scope should be designated; do not assume every admin reads every library. Restricted library only when needed. Defaults require confirmed members; template availability does not mean sensitive content public.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 7,
+      "title": "一期功能取舍",
+      "key_points": [
+        "保留的使用入口",
+        "默认结构 · 上传与轻量新建",
+        "目录与搜索 · 最近访问",
+        "必须做可靠",
+        "转换核对 · 保存与恢复",
+        "来源与维护人 · 权限控制",
+        "后续按需要扩展",
+        "复杂标签、多视图、图谱、模板市场",
+        "聊天、会议、任务、日历等内容自动提取",
+        "文件格式范围与 Agent 问答排期单独确认"
+      ],
+      "role": "scope comparison",
+      "intent": "Two large open columns in upper content area, separated by a thin pale vertical line. Left heading 保留的使用入口 with two large lines and a simple folder/search symbol. Right heading 必须做可靠 with two large lines and a subtle check/document symbol. Bottom horizontal pale-blue strip for 后续按需要扩展 with two lines. Footer final caveat. No tiny bullet grid, no complex tech acronyms.",
+      "layout": {
+        "composition": "Two large open columns in upper content area, separated by a thin pale vertical line. Left heading 保留的使用入口 with two large lines and a simple folder/search symbol. Right heading 必须做可靠 with two large lines and a subtle check/document symbol. Bottom horizontal pale-blue strip for 后续按需要扩展 with two lines. Footer final caveat. No tiny bullet grid, no complex tech acronyms.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "A legible functional-scope comparison where retained functions occupy most space."
+      },
+      "local_context": "Prioritize upload, conversion check and maintaining Markdown. Lightweight blank creation is secondary. Do not promise all file format conversion. Simplicity concerns workflow and scope; reliability and permissions retained. No need for complex Notion-style configuration or Feishu multi-app integration in phase one.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 8,
+      "title": "持续使用的理由",
+      "key_points": [
+        "【推测】以下机制可能促进再次使用，需要试点验证",
+        "容易开始｜默认结构可直接用",
+        "资料有用｜制度、手册、销售资料",
+        "方便找回｜搜索、最近访问、稳定链接",
+        "内容可信｜维护人、更新时间、纠错",
+        "围绕重复发生的工作任务，验证实际回访"
+      ],
+      "role": "reuse hypothesis",
+      "intent": "Large title and visible hypothesis line below. Main visual is ONE wide clockwise cycle with four open typographic stations, generous spacing, simple small cobalt document/search/refresh icons. Stages exact titles and supporting subtitles split at pipe. Clear arrows link start, useful materials, refinding, maintained content, return. Bottom takeaway sentence. No metrics, no positive growth chart, no reward badges. Arrows signify proposed workflow not measured causality.",
+      "layout": {
+        "composition": "Large title and visible hypothesis line below. Main visual is ONE wide clockwise cycle with four open typographic stations, generous spacing, simple small cobalt document/search/refresh icons. Stages exact titles and supporting subtitles split at pipe. Clear arrows link start, useful materials, refinding, maintained content, return. Bottom takeaway sentence. No metrics, no positive growth chart, no reward badges. Arrows signify proposed workflow not measured causality.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "An airy 4-stage cycle, flat, diagram labels large and readable."
+      },
+      "local_context": "This is a hypothesis, not established user retention result. Structure alone cannot prove stickiness. Updated date does not guarantee truth; owners must actually maintain content. Useful recurring tasks should motivate use, not compulsory daily login.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 9,
+      "title": "用小范围试点验证",
+      "key_points": [
+        "准备",
+        "选一个团队、一类高频资料",
+        "放入真实文档，明确维护人",
+        "试用",
+        "建议试用两周",
+        "完成上传、查找、修改任务",
+        "判断",
+        "首次完成 · 查找时间",
+        "实际回访 · 维护成本",
+        "同步记录：权限异常、保存失败、内容过期",
+        "按真实任务表现决定下一步功能"
+      ],
+      "role": "trial timeline",
+      "intent": "A horizontal three-stage timeline with large stage numbers 01 02 03 only as step labels, not slide numbers. Each stage has title 准备 / 试用 / 判断 and the two listed supporting lines, exact. The center 试用 stage is cobalt emphasized. Open white layout, no repeated cards. At bottom a thin rule and two notes. No invented target percentages, sample size or result data.",
+      "layout": {
+        "composition": "A horizontal three-stage timeline with large stage numbers 01 02 03 only as step labels, not slide numbers. Each stage has title 准备 / 试用 / 判断 and the two listed supporting lines, exact. The center 试用 stage is cobalt emphasized. Open white layout, no repeated cards. At bottom a thin rule and two notes. No invented target percentages, sample size or result data.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "Three-stage timeline with readable labels and no charts."
+      },
+      "local_context": "Trial duration is recommendation, not commitment. Actual return means repeated use by people with real repeated needs; no fake retention metric. Manual task notes sufficient. Observe readers and maintainers separately. Test current permission coverage before scaling.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 10,
+      "title": "数据看板竞品的参考点",
+      "key_points": [
+        "Power BI",
+        "仪表板概况 → 报表分析",
+        "重点看：总览到明细的路径",
+        "Metabase",
+        "查询组合 → 筛选与点击",
+        "重点看：关联条件与追查方式",
+        "共同关注：指标口径 · 更新时间 · 数据可见范围",
+        "官方资料初步调研，未统一账号实测"
+      ],
+      "role": "dashboard comparison",
+      "intent": "Mirrored two-column product comparison. Product names prominent navy. Each column contains ONE simplified conceptual two-step diagram of overview to detail or query to filter, using abstract charts WITHOUT values, labels only exact listed text. Diagrams are visibly generic concepts not realistic product screenshots. Limit them to 35% of canvas, leave room for generous product text. Bottom shared criteria separated by thin rule and evidence disclosure in readable small type.",
+      "layout": {
+        "composition": "Mirrored two-column product comparison. Product names prominent navy. Each column contains ONE simplified conceptual two-step diagram of overview to detail or query to filter, using abstract charts WITHOUT values, labels only exact listed text. Diagrams are visibly generic concepts not realistic product screenshots. Limit them to 35% of canvas, leave room for generous product text. Bottom shared criteria separated by thin rule and evidence disclosure in readable small type.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "Two simple abstract overview-detail mini diagrams, no fabricated numeric data."
+      },
+      "local_context": "Power BI dashboard is overview and detailed analysis generally in reports; filters/slicers are report features with whole-report-page pinning exceptions. Metabase filters require field binding and SQL variables; drill-through constrained by permissions and query type. Do not imply Metabase all charts support arbitrary drill-through.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 11,
+      "title": "数据看板的下一轮验证",
+      "key_points": [
+        "业务问题",
+        "选择一个具体问题",
+        "同口径数据",
+        "用同一份样例数据",
+        "完成路径",
+        "总览、筛选、追明细",
+        "权限验证",
+        "角色、底层数据、导出",
+        "输出：任务对照表 + 操作证据 + 适用边界",
+        "知识库看文档使用，看板看数据分析；分别形成结论"
+      ],
+      "role": "next research workflow",
+      "intent": "Four sequential stations along one horizontal research workflow, airy flat style. Each station has small minimal symbol, title, one supporting line exactly. Beneath, prominent cobalt deliverable sentence. Bottom evidence boundary line in navy. No fake dashboards, no architecture diagram, no card grid.",
+      "layout": {
+        "composition": "Four sequential stations along one horizontal research workflow, airy flat style. Each station has small minimal symbol, title, one supporting line exactly. Beneath, prominent cobalt deliverable sentence. Bottom evidence boundary line in navy. No fake dashboards, no architecture diagram, no card grid.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "Four-stage workflow and a single document/evidence motif."
+      },
+      "local_context": "This describes next research work, not an enterprise data platform design. Compare Power BI and Metabase on same task and data. Access to dashboard is distinct from access to raw rows/columns and download. Data-source/model setup complexity assessed in notes. Source and permission boundaries should be testable.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    },
+    {
+      "number": 12,
+      "title": "本次建议与待定事项",
+      "key_points": [
+        "默认结构可直接用",
+        "管理员按需调整，围绕资料使用做深",
+        "首批范围｜哪个团队、哪类资料",
+        "权限边界｜是否必须支持单篇例外",
+        "交付范围｜上传格式、Agent 问答排期",
+        "下一步：用真实任务验证结构、查找与维护体验"
+      ],
+      "role": "closing decision",
+      "intent": "A decisive quiet closing slide. Very large cobalt recommendation 默认结构可直接用 on left upper half with one supporting line. Right lower half has three spacious decision rows with thin pale rules, split pipe into bold label and body. Final next-step sentence along bottom. White background, no thank-you slide, no Q&A lettering, no repeated tree from sample.",
+      "layout": {
+        "composition": "A decisive quiet closing slide. Very large cobalt recommendation 默认结构可直接用 on left upper half with one supporting line. Right lower half has three spacious decision rows with thin pale rules, split pipe into bold label and body. Final next-step sentence along bottom. White background, no thank-you slide, no Q&A lettering, no repeated tree from sample.",
+        "variation_rule": "Use the same blue-white visual identity but a layout appropriate to this page; do not copy sample tree unless this is slide 4."
+      },
+      "visual_elements": {
+        "main_visual": "Typography-led conclusion with one understated blue document/library symbol."
+      },
+      "local_context": "User proposal still to be reviewed, while enterprise Agent framework already confirmed. Need not reask whole architecture. Scope decisions are three concrete areas for leadership meeting; not require user response before generating file.",
+      "constraints": [
+        "Use only exact title and key_points text as visible slide copy. Background and speaker_focus are context only, never add their text to slide.",
+        "All key_points should appear exactly once unless layout describes splitting the pipe-separated phrases into cells or nodes. Pipe and slash separators may become spacing or newlines.",
+        "Do not invent statistics, names, business performance values, percentages, citations or product UI screenshots.",
+        "No unrelated English slogans or random paragraph text. No extra slide numbers. Chinese must be exact and readable."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+import { FileBlob, PresentationFile } from '@oai/artifact-tool';
+import fs from 'node:fs/promises';
+const p=await PresentationFile.importPptx(await FileBlob.load('/Users/linhe/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-team-alignment/assets/reference.pptx'));
+const s=p.slides.items[5];
+console.log('IMAGES',Object.getOwnPropertyNames(Object.getPrototypeOf(s.images)));
+console.log('IMAGE',Object.getOwnPropertyNames(Object.getPrototypeOf(s.images.items[0])));
+const sh=s.shapes.items.find(x=>String(x.id)==='534');
+console.log('TEXT',Object.getOwnPropertyNames(Object.getPrototypeOf(sh.text)));
+console.log('BEFORE',JSON.stringify(sh.text.toJSON?.()));
+sh.text=[{runs:[{run:'Test no bullet 测试',textStyle:{typeface:'Arial Unicode MS',fontSize:'24px'}}],bulletCharacter:'',marginLeft:0,indent:0}];
+console.log('AFTER',JSON.stringify(sh.text.toJSON?.()));
+await (await PresentationFile.exportPptx(p)).save(decodeURIComponent(new URL('probe.pptx',import.meta.url).pathname));

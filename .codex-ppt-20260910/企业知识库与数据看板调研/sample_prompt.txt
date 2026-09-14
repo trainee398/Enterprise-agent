@@ -1,0 +1,35 @@
+Generate a finished 16:9 Chinese leadership presentation slide as ONE image, 2560x1440 target, full bleed, no slide number. This is a modern premium product-strategy presentation, crisp Chinese sans-serif, exact typography, controlled space. White #FFFFFF canvas, ink navy #142B49 text, vivid cobalt #2563EB only for emphasis, very light ice blue #EFF5FF accents. Flat clean visual design. Large headline with generous top/left margins. No photographs, no 3D glass, no dark green, no gradients, no heavy shadows, no decorative dashboard cards, no logos. Diagram lines are precise with open whitespace. Text is readable on projection, no tiny captions. Design one coherent composition, not a dashboard.
+
+TITLE at top left, exact text:
+默认有结构，自定义非必需
+
+SMALL section label above title, exact:
+知识库一期建议
+
+Subtitle immediately below title:
+系统提供一套可直接使用的默认结构
+
+MAIN composition: left 62% an airy, elegant folder hierarchy; right 32% a narrow editorial column separated by a light vertical rule.
+The left hierarchy contains these EXACT nodes with thin cobalt connector lines and tiny simple folder/document icons:
+At top: 公司
+Below, three parallel children: 公司公共库 | 销售部知识库 | 研发部知识库
+Only the middle child 销售部知识库 continues downward to: 产品资料
+产品资料 continues downward to: 产品介绍文档
+The diagram MUST make parent/child relationship unambiguous: 公司 is parent of all three libraries; 产品资料 is inside 销售部知识库; 产品介绍文档 is inside 产品资料.
+Small label under the tree, exact:
+公司 → 知识库 → 目录 → 文档
+
+Right column has heading:
+管理员按需调整
+Three vertically spaced options, not sequential steps, use open flat typography with small blue tick strokes (not numbered):
+直接使用
+修改默认结构
+完全自定义
+Each option has NO extra description. At bottom of the right column, a large cobalt emphasis line in 2 lines:
+无需先配置
+再开始使用
+
+Footer aligned left at bottom, exact:
+方案示意｜部门与目录为示例，成员可见范围单独确认
+
+Render ONLY the exact text specified above; do not add paragraphs, fictional data, page numbers, English slogans or watermarks. Make the diagram dominant, typography refined and clear. All Chinese characters correct. The title and content must fit within 5% safe margins.
